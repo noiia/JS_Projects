@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 * {
     margin : 0;
     padding : 0;
     box-sizing: border-box;
-    font-family : "oboto", sans-serif;
+    font-family : "Roboto", sans-serif;
 }
 
 body {
-    background-color: #4285f4;
+    background : linear-gradient(to right, #61f4de,#6e78ff) ;
     display : flex;
     align-items: center;
     justify-content: center;
@@ -23,6 +23,7 @@ section {
     overflow: hidden;
 }
 h1{
+    background-color : linear-gradient(to right, #61f4de,#6e78ff) ;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -77,4 +78,25 @@ button{
 .paragraph_click_back {
     background-color: #699df0;
     text-decoration: none;
+}
+.customContextMenu button{
+    width: 100%;
+    font-size: 16px;
+    height: 30px;
+    color : #000;
+    padding-inline: 5px;
+    background-color : #e4e4e4;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.customContextMenu button:hover{
+    background-color : #45be5f;
+    transition: all 0.2s ease-in;
+}
+.customContextMenu {
+    list-style-type : none;
+}
+.customContextMenu li{
+    margin-bottom: 3px;
 }
