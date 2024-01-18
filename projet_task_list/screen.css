@@ -92,7 +92,7 @@ button{
 }
 .customContextMenu button:hover{
     background-color : #45be5f;
-    transition: all 0.2s ease-in;
+    transition: all 0.2s;
 }
 .customContextMenu {
     list-style-type : none;

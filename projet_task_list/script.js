@@ -5,7 +5,7 @@ var clickedBlock= false;
 
 function addToDoBlock(){
     if(inputField.value != ""){
-        var paragraph = document.createElement('p')
+        var paragraph = document.createElement('p');
         paragraph.innerText = inputField.value;
         paragraph.classList.add('paragraphe_style');
         toDoContainer.appendChild(paragraph);
@@ -23,7 +23,7 @@ addNewToDo.onclick = function(){
     addToDoBlock();
 };
 function toDoContainerSelected() {
-    toDoContainer.addEventListener('rightclick', function(event){
+    toDoContainer.addEventListener('click', function(event){
         var clickedPara = event.target;
         console.log("clicked on " + clickedPara.innerText);
         return clickedPara;
@@ -51,15 +51,26 @@ document.addEventListener('contextmenu', function(event) {
     showCustomContextMenu(event.clientX, event.clientY);
 });
 
+
+function isClickedBox(event) { 
+    toDoContainer.addEventListener('click', function(event){
+        if (event.target === "p"){
+            console.log("boite cliquée");
+            return true;
+        } else {
+            return false;
+        }
+    });
+     }
 function showCustomContextMenu(x, y) {
     if (!onDisplay){
         onDisplay = true;
 
         var customContextMenu = document.createElement('div');
 
-        if (toDoContainerSelected()){
-            customContextMenu.innerHTML = '<ul class="customContextMenu"><li><button type = "button"> Modifier </button> </li><li><button type = "button"> Supprimer </button></li></ul>';
-        }else {
+        if (isClickedBox()) {
+            customContextMenu.innerHTML = '<ul class="customContextMenu"><li><button type = "button">Modifier</button> </li><li><button type = "button">Supprimer</button></li></ul>';
+        } else {
             customContextMenu.innerHTML = '<ul class="customContextMenu"><li><button type = "button">Nouvelle Liste</button></li><li><button type = "button">Changer les couleurs du fond</button></li></ul>';
         }
 
@@ -71,9 +82,6 @@ function showCustomContextMenu(x, y) {
         customContextMenu.style.borderRadius = '5px';
         customContextMenu.style.padding = '10px';
         customContextMenu.style.color = '#000000';
-        document.addEventListener('pointerOnText', function(event){
-            
-        });
 
         
         document.body.appendChild(customContextMenu);
